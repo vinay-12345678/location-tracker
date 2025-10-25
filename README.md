@@ -1,68 +1,115 @@
+# LocationTracker
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+## Quick Start
+
+If you already have your React Native environment set up:
+
+```sh
+# Install dependencies
+npm install
+
+# For iOS (macOS only)
+cd ios && export LANG=en_US.UTF-8 && bundle exec pod install && cd ..
+
+# Start Metro bundler
+npm start
+
+# In another terminal, run the app:
+npm run ios      # For iOS
+# or
+npm run android  # For Android
+```
+
+## Prerequisites
+
+Before running this app, make sure you have the following installed:
+
+### For iOS Development:
+- macOS (required for iOS development)
+- Xcode 15 or later
+- CocoaPods (will be installed via bundler)
+- Ruby (bundler will manage gem dependencies)
+
+### For Android Development:
+- Java Development Kit (JDK) 17 or later
+- Android Studio (with Android SDK)
+- Android SDK Platform 34 or later
+- Android Virtual Device (AVD) or a physical device
+
+### Common Requirements:
+- Node.js 20 or later
+- npm or Yarn
+- Watchman (recommended for macOS users)
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
+# Getting Started
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Step 1: Install Dependencies
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+First, install the npm dependencies:
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+npm install
 ```
 
-## Step 2: Build and run your app
+## Step 2: iOS Setup (macOS only)
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
+For iOS, you need to install CocoaPods dependencies. Navigate to the iOS folder and run:
 
 ```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
+cd ios
+export LANG=en_US.UTF-8
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
+cd ..
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+> **Note**: The `export LANG=en_US.UTF-8` command ensures proper UTF-8 encoding for CocoaPods. You only need to run `bundle install` and `pod install` once or when native dependencies change.
+
+## Step 3: Start Metro
+
+Metro is the JavaScript bundler for React Native. Start it with:
 
 ```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npm start
 ```
+
+## Step 4: Run the App
+
+With Metro running, open a new terminal window and run one of the following commands:
+
+### For Android:
+
+Make sure you have an Android emulator running or a device connected, then:
+
+```sh
+npm run android
+```
+
+### For iOS:
+
+Make sure you have an iOS simulator installed or a device connected, then:
+
+```sh
+npm run ios
+```
+
+Alternatively, you can open the project in Xcode:
+
+```sh
+open ios/LocationTracker.xcworkspace
+```
+
+Then press the "Run" button in Xcode.
 
 If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+> **Tip**: You can also build and run your app directly from Android Studio or Xcode for more advanced debugging and development options.
 
-## Step 3: Modify your app
+## Step 5: Modify Your App
 
 Now that you have successfully run the app, let's make changes!
 
@@ -72,6 +119,65 @@ When you want to forcefully reload, for example to reset the state of your app, 
 
 - **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
 - **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+
+# Available Scripts
+
+The following npm scripts are available to help with development:
+
+- `npm start` - Start the Metro bundler
+- `npm run android` - Build and run the Android app
+- `npm run ios` - Build and run the iOS app
+- `npm run lint` - Run ESLint to check code quality
+- `npm test` - Run Jest tests
+- `npm run pod-install` - Install iOS dependencies (CocoaPods) with proper UTF-8 encoding
+- `npm run clean` - Clean Android and iOS build folders
+- `npm run clean-all` - Complete clean: removes node_modules, Pods, and reinstalls everything
+
+# React Navigation
+
+This project includes React Navigation with both **Native Stack** and **Bottom Tabs** navigators pre-configured.
+
+## Navigation Structure
+
+The app uses a combination of navigators:
+- **Bottom Tab Navigator**: Main navigation between Home, Profile, and Settings
+- **Native Stack Navigator**: Nested in the Home tab for detail navigation
+
+## Example Code
+
+The current `App.tsx` demonstrates:
+- Bottom tab navigation with 3 tabs (Home, Profile, Settings)
+- Stack navigation within the Home tab (Home → Details)
+- Dark mode support
+- TypeScript types for navigation
+
+## Adding New Screens
+
+To add a new screen to the stack:
+
+```typescript
+<Stack.Screen 
+  name="NewScreen" 
+  component={NewScreenComponent}
+  options={{ title: 'New Screen' }}
+/>
+```
+
+To add a new tab:
+
+```typescript
+<Tab.Screen 
+  name="NewTab" 
+  component={NewTabComponent}
+  options={{ title: 'New Tab' }}
+/>
+```
+
+## Learn More
+
+- [React Navigation Documentation](https://reactnavigation.org/docs/getting-started)
+- [Native Stack Navigator](https://reactnavigation.org/docs/native-stack-navigator)
+- [Bottom Tabs Navigator](https://reactnavigation.org/docs/bottom-tab-navigator)
 
 ## Congratulations! :tada:
 
@@ -84,7 +190,74 @@ You've successfully run and modified your React Native App. :partying_face:
 
 # Troubleshooting
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Common Issues and Solutions
+
+### iOS Build Issues
+
+#### CocoaPods UTF-8 Encoding Error
+If you encounter `Unicode Normalization not appropriate for ASCII-8BIT` error:
+```sh
+export LANG=en_US.UTF-8
+cd ios
+bundle exec pod install
+cd ..
+```
+
+Or use the npm script:
+```sh
+npm run pod-install
+```
+
+#### Clean iOS Build
+If you're experiencing persistent iOS build issues:
+```sh
+cd ios
+xcodebuild clean -workspace LocationTracker.xcworkspace -scheme LocationTracker
+rm -rf build
+bundle exec pod install
+cd ..
+```
+
+### Android Build Issues
+
+#### Gradle Build Failures
+If you encounter Gradle issues, try cleaning the build:
+```sh
+cd android
+./gradlew clean
+./gradlew assembleDebug
+cd ..
+```
+
+#### Metro Bundler Port Already in Use
+If Metro is already running or port 8081 is occupied:
+```sh
+# Find and kill the process using port 8081
+lsof -ti:8081 | xargs kill -9
+# Then restart Metro
+npm start
+```
+
+### General Issues
+
+#### Clean Everything and Start Fresh
+If nothing else works, try a complete clean rebuild:
+```sh
+npm run clean-all
+```
+
+This will:
+- Clean Android and iOS builds
+- Remove node_modules and Pods
+- Reinstall all dependencies
+
+#### Cache Issues
+Clear Metro bundler cache:
+```sh
+npm start -- --reset-cache
+```
+
+For more detailed troubleshooting, see the [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
 # Learn More
 
