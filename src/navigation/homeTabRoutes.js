@@ -3,27 +3,27 @@
  * Define all bottom tab routes and their components here
  */
 
-import TrackScreen from '../screens/track';
-import ProfileScreen from '../screens/profile';
-import SettingsScreen from '../screens/settings';
+import Home from '../screens/home';
+import Track from '../screens/track';
+import Settings from '../screens/settings';
 
 // Bottom Tab Navigator Routes
 export const tabRoutes = [
   {
-    name: 'Track',
-    component: TrackScreen,
+    name: 'Home',
+    component: Home,
     options: {
-      title: 'Track',
+      title: 'Home',
       // tabBarIcon: ({ color, size }) => (
       //   <Icon name="map" size={size} color={color} />
       // ),
     },
   },
   {
-    name: 'Profile',
-    component: ProfileScreen,
+    name: 'Track',
+    component: Track,
     options: {
-      title: 'Profile',
+      title: 'Track',
       // tabBarIcon: ({ color, size }) => (
       //   <Icon name="user" size={size} color={color} />
       // ),
@@ -31,7 +31,7 @@ export const tabRoutes = [
   },
   {
     name: 'Settings',
-    component: SettingsScreen,
+    component: Settings,
     options: {
       title: 'Settings',
       // tabBarIcon: ({ color, size }) => (

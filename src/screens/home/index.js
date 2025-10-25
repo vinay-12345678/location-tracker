@@ -1,33 +1,43 @@
 /**
- * Home Screen with Bottom Tab Navigator
+ * Track Screen
  */
 
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import _map from 'lodash/map';
-import { tabRoutes } from '../../navigation/homeTabRoutes';
+import { View, Text, useColorScheme, StyleSheet } from 'react-native';
 
-// Create Tab Navigator
-const Tab = createBottomTabNavigator();
+function Home() {
+  const isDarkMode = useColorScheme() === 'dark';
+  const backgroundColor = isDarkMode ? '#000' : '#fff';
+  const textColor = isDarkMode ? '#fff' : '#000';
 
-function HomeScreen() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: true,
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: 'gray',
-      }}>
-      {_map(tabRoutes, (route) => (
-        <Tab.Screen
-          key={route.name}
-          name={route.name}
-          component={route.component}
-          options={route.options}
-        />
-      ))}
-    </Tab.Navigator>
+    <View style={[styles.screen, { backgroundColor }]}>
+      <Text style={[styles.title, { color: textColor }]}>Home Screen</Text>
+      <Text style={[styles.text, { color: textColor }]}>
+        Welcome to the Home Screen
+      </Text>
+    </View>
   );
 }
 
-export default HomeScreen;
+export default Home;
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  text: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 24,
+  },
+});
+

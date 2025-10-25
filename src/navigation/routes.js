@@ -3,13 +3,13 @@
  * Define all screen routes and their components here
  */
 
-import HomeScreen from '../screens/home';
+import Dashboard from '../screens/dashboard';
 
 // Stack Navigator Routes
 export const stackRoutes = [
   {
-    name: 'Home',
-    component: HomeScreen,
+    name: 'Dashboard',
+    component: Dashboard,
     options: {
       headerShown: false,
     },

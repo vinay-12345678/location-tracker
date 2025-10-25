@@ -1,7 +1,7 @@
 import { View, Text, useColorScheme, StyleSheet } from 'react-native';
 
 
-function SettingsScreen() {
+function Settings() {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundColor = isDarkMode ? '#000' : '#fff';
   const textColor = isDarkMode ? '#fff' : '#000';
@@ -16,7 +16,7 @@ function SettingsScreen() {
   );
 }
 
-export default SettingsScreen;
+export default Settings;
 
 const styles = StyleSheet.create({
   screen: {

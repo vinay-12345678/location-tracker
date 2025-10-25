@@ -1,11 +1,11 @@
 /**
- * Track Screen
+ * Profile Screen
  */
 
 import React from 'react';
 import { View, Text, useColorScheme, StyleSheet } from 'react-native';
 
-function TrackScreen() {
+function Track() {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundColor = isDarkMode ? '#000' : '#fff';
   const textColor = isDarkMode ? '#fff' : '#000';
@@ -20,7 +20,7 @@ function TrackScreen() {
   );
 }
 
-export default TrackScreen;
+export default Track;
 
 const styles = StyleSheet.create({
   screen: {
