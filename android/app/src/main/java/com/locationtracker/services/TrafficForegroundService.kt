@@ -110,7 +110,7 @@ class TrafficForegroundService : Service() {
         Log.d("TrafficService", "📍 Location: lat=$latitude, lng=$longitude")
         
           val urlStr =
-              "https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0/8/json" + // 9x zoom will be around 200-400 meter
+              "https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0/8/json" + // 8x zoom will be around 200-400 meter
                       "?point=${latitude},${longitude}" +
                       "&unit=KMPH&key=$tomTomKey"
 
