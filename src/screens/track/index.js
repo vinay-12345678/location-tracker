@@ -1,5 +1,5 @@
 /**
- * Profile Screen
+ * Track Screen
  */
 
 import React from 'react';
@@ -14,7 +14,7 @@ function Track() {
     <View style={[styles.screen, { backgroundColor }]}>
       <Text style={[styles.title, { color: textColor }]}>Track Screen</Text>
       <Text style={[styles.text, { color: textColor }]}>
-        Track your location here
+        View your location tracking history here
       </Text>
     </View>
   );
