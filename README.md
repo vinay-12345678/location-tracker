@@ -1,4 +1,4 @@
-# LocationTracker
+# Traffic Advisor
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
@@ -100,7 +100,7 @@ npm run ios
 Alternatively, you can open the project in Xcode:
 
 ```sh
-open ios/LocationTracker.xcworkspace
+open ios/TrafficAdvisor.xcworkspace
 ```
 
 Then press the "Run" button in Xcode.
@@ -212,7 +212,7 @@ npm run pod-install
 If you're experiencing persistent iOS build issues:
 ```sh
 cd ios
-xcodebuild clean -workspace LocationTracker.xcworkspace -scheme LocationTracker
+xcodebuild clean -workspace TrafficAdvisor.xcworkspace -scheme TrafficAdvisor
 rm -rf build
 bundle exec pod install
 cd ..

@@ -14,6 +14,9 @@ import com.google.android.gms.location.*
 import kotlinx.coroutines.*
 import org.json.JSONObject
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class TrafficForegroundService : Service() {
 
@@ -54,11 +57,16 @@ class TrafficForegroundService : Service() {
 
   // notification banaya hai
   private fun createNotification(content: String): Notification {
+      val dateFormat = SimpleDateFormat("hh:mm a, MMM dd", Locale.getDefault())
+      val currentTime = dateFormat.format(Date())
+      val contentWithTime = "Last update: $currentTime"
+      
       return NotificationCompat.Builder(this, CHANNEL_ID)
-          .setContentTitle("Traffic Advisor")
-          .setContentText(content)
+          .setContentTitle(content)
+          .setContentText(contentWithTime)
           .setSmallIcon(android.R.drawable.ic_menu_mylocation)
           .setOngoing(true)
+          .setStyle(NotificationCompat.BigTextStyle().bigText(contentWithTime))
           .build()
   }
 
@@ -102,7 +110,7 @@ class TrafficForegroundService : Service() {
         Log.d("TrafficService", "📍 Location: lat=$latitude, lng=$longitude")
         
           val urlStr =
-              "https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0/9/json" + // 9x zoom will be around 200-400 meter
+              "https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0/8/json" + // 9x zoom will be around 200-400 meter
                       "?point=${latitude},${longitude}" +
                       "&unit=KMPH&key=$tomTomKey"
 
@@ -122,10 +130,10 @@ class TrafficForegroundService : Service() {
           Log.d("TrafficService", "📊 Ratio: $ratio")
 
           val status = when {
-              ratio > 0.95 -> "No traffic, perfect time to go out"
-              ratio > 0.8 -> "Less traffic, good time to go out"
-              ratio > 0.5 -> "Moderate traffic nearby"
-              else -> "Heavy traffic, wait before going out"
+              ratio > 0.95 -> "No traffic, perfect time to go out !"
+              ratio > 0.8 -> "Less traffic, good time to go out !"
+              ratio > 0.5 -> "Moderate traffic nearby !"
+              else -> "Heavy traffic, wait before going out !"
           }
 
           Log.d("TrafficService", "✅ Status: $status")

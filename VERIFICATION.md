@@ -48,8 +48,8 @@ android/app/build/outputs/apk/debug/app-debug.apk
 
 **Build Command:**
 ```bash
-xcodebuild -workspace ios/LocationTracker.xcworkspace \
-  -scheme LocationTracker \
+xcodebuild -workspace ios/TrafficAdvisor.xcworkspace \
+  -scheme TrafficAdvisor \
   -configuration Debug \
   -sdk iphonesimulator \
   -destination 'platform=iOS Simulator,id=155A3E36-A148-470A-B6E9-97A992551D05' \
@@ -97,10 +97,10 @@ location-tracker/
 │   ├── build.gradle           ✅ Gradle configuration
 │   └── gradlew                ✅ Gradle wrapper
 ├── ios/                       ✅ iOS native code
-│   ├── LocationTracker/
+│   ├── TrafficAdvisor/
 │   ├── Podfile                ✅ CocoaPods configuration
 │   ├── Pods/                  ✅ Dependencies installed
-│   └── LocationTracker.xcworkspace ✅ Xcode workspace
+│   └── TrafficAdvisor.xcworkspace ✅ Xcode workspace
 ├── node_modules/              ✅ 835 packages installed
 ├── App.tsx                    ✅ Main app component
 ├── index.js                   ✅ Entry point

@@ -1,4 +1,4 @@
-# Project Status - LocationTracker
+# Project Status - Traffic Advisor
 
 ## ✅ Setup Complete
 

@@ -1,5 +1,5 @@
 {
-  "name": "LocationTracker",
+  "name": "TrafficAdvisor",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "pod-install": "cd ios && export LANG=en_US.UTF-8 && bundle exec pod install && cd ..",
-    "clean": "cd android && ./gradlew clean && cd .. && cd ios && xcodebuild clean -workspace LocationTracker.xcworkspace -scheme LocationTracker && cd ..",
+    "clean": "cd android && ./gradlew clean && cd .. && cd ios && xcodebuild clean -workspace TrafficAdvisor.xcworkspace -scheme TrafficAdvisor && cd ..",
     "clean-all": "npm run clean && rm -rf node_modules ios/Pods && npm install && npm run pod-install"
   },
   "dependencies": {
