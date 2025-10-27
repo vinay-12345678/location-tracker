@@ -130,10 +130,10 @@ class TrafficForegroundService : Service() {
           Log.d("TrafficService", "📊 Ratio: $ratio")
 
           val status = when {
-              ratio > 0.95 -> "No traffic, perfect time to go out !"
-              ratio > 0.8 -> "Less traffic, good time to go out !"
-              ratio > 0.5 -> "Moderate traffic nearby !"
-              else -> "Heavy traffic, wait before going out !"
+              ratio > 0.95 -> "No traffic, perfect time to go out 🟢"
+              ratio > 0.8 -> "Less traffic, good time to go out 🟢"
+              ratio > 0.5 -> "Moderate traffic nearby 🟡"
+              else -> "Heavy traffic, wait before going out 🔴"
           }
 
           Log.d("TrafficService", "✅ Status: $status")
